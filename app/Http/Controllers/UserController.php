@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Controllers\Controller;
-use app\Models\User;
+use App\Models\User;
 use App\Models\UserRole;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
-// use a
 
 class UserController extends Controller
 {
