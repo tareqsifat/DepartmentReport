@@ -36,7 +36,7 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
         {{-- jquary --}}
         <script src="{{ asset('js/app.js') }}"></script>
-        {{-- <script src="{{ asset('contents/admin') }}/js/jquery.min.js"></script> --}}
+        <script src="{{ asset('contents/admin') }}/js/jquery.min.js"></script>
         {{-- ajax.setup --}}
         <script>
             $.ajaxSetup({
