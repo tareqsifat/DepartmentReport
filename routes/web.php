@@ -14,13 +14,17 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WebsiteController@index');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group([
+    'prefix'=>'dashboard',
+    'middleware'=>['auth'] 
+],function(){
+    Route::get('/','DashboardController@index')->name('dashboard');
+});
 
 Route::group( [
     'prefix'=>'user',

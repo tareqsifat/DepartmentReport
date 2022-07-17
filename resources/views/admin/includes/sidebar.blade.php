@@ -16,7 +16,7 @@
             <a class="has-arrow" href="javascript:void();">
                 <div class="parent-icon"><i class="zmdi zmdi-view-dashboard"></i></div>
                 <div class="menu-title">User Management</div> 
-            </a>
+            </a>      
             <ul class="">
                 <li>
                     <a href="{{ route('admin_user_index') }}">
