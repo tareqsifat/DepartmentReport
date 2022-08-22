@@ -14,35 +14,40 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', 'WebsiteController@index');
+Route::get('/', 'website\WebsiteController@index');
 
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::group([
     'prefix'=>'dashboard',
     'middleware'=>['auth'] 
 ],function(){
-    Route::get('/','DashboardController@index')->name('dashboard');
+    Route::get('/','admin\DashboardController@index')->name('dashboard');
 });
 
-Route::group( [
+Route::group([
     'prefix'=>'user',
     'middleware'=>['auth'],
-
 ],
-
     function(){ 
-
-        Route::get('/index','UserController@index')->name('admin_user_index');
-        Route::get('/view/{id}','UserController@view')->name('admin_user_view');
-        Route::get('/create','UserController@create')->name('admin_user_create');
-        Route::post('/store','UserController@store')->name('admin_user_store');
-        Route::get('/edit/{id}','UserController@edit')->name('admin_user_edit');
-        Route::post('/update','UserController@update')->name('admin_user_update');
-        Route::post('/delete','UserController@delete')->name('admin_user_delete');
-        Route::get('/test/{id}','UserController@test')->name('admin_user_test');
+        //user Route
+        Route::get('/index','admin\UserController@index')->name('admin_user_index');
+        Route::get('/view/{id}','admin\UserController@view')->name('admin_user_view');
+        Route::get('/create','admin\UserController@create')->name('admin_user_create');
+        Route::post('/store','admin\UserController@store')->name('admin_user_store');
+        Route::get('/edit/{id}','admin\UserController@edit')->name('admin_user_edit');
+        Route::post('/update','admin\UserController@update')->name('admin_user_update');
+        Route::post('/delete','admin\UserController@delete')->name('admin_user_delete');
+        Route::get('/test/{id}','admin\UserController@test')->name('admin_user_test');
         
 });
 
-// Route::resource('user', 'UserController');
+Route::group([
+    'namespace'=>'system',
+    'middleware'=>['auth']
+],function(){
+    //Report Route
+    Route::resource('report', 'ReportController');
+    Route::resource('skill_man', 'SkilledManController');
+});
+

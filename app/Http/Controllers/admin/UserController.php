@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 
 use App\Http\Controllers\Controller;
@@ -76,15 +76,16 @@ class UserController extends Controller
 
     public function update(Request $request)
     {
-
+        
         $this->validate($request,[ 
             'first_name' => ['required'],
             'last_name' => ['required'],
             'email' => ['required'],
         ]); 
-    
-        $user = User::find($request-> id);
-
+        
+        $user = User::find($request->id);
+        // dd($request->all());
+        
         if($user->email !=  $request->email){
             $this-> validate($request, [
                 'email' => ['required','unique:users']
@@ -94,7 +95,7 @@ class UserController extends Controller
 
         if($user->username !=  $request->username){
             $this->validate($request, [
-                'email' => ['required', 'unique:users']
+                'username' => ['required', 'unique:users']
             ]);
             $user -> username = $request -> username;
         }

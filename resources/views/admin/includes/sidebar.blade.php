@@ -17,7 +17,7 @@
         </a>
         <ul class="">
             <li>
-                <a href="{{url('/')}}"><i class="zmdi zmdi-dot-circle-alt"></i>Report Form</a>
+                <a href="{{ route('report.index') }}"><i class="zmdi zmdi-dot-circle-alt"></i>Report</a>
             </li>
             <li>
                 <a href="{{url('/')}}"><i class="zmdi zmdi-dot-circle-alt"></i> Skilled Manpower List</a>
